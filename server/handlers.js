@@ -1,4 +1,3 @@
-
 // const { updatedItemArr, updatedArr } = require("./dataTest");
 const { updatedItemArr, updatedArr } = require("./data");
 
@@ -46,9 +45,6 @@ module.exports = {
   handleAllItems,
   handleItemById,
   handleCompanies,
-  updateCart
 };
 // fs.writeFileSync("server/data/companies.json", JSON.stringify(updatedArr));
 // fs.writeFileSync("server/data/items.json", JSON.stringify(updatedItemArr));
-
-
