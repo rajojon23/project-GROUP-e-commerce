@@ -2,14 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
-import ItemsGrid from "./ItemsGrid";
+import ItemGrid from "./ItemGrid";
+import Footer from "./Footer";
 
 const HomePage = () => {
   return (
     <Wrapper>
       <Header />
       <Sidebar />
-      <ItemsGrid />
+      <ItemGridWrapper>
+        <ItemGrid />
+      </ItemGridWrapper>
+      <Footer />
     </Wrapper>
   );
 };
@@ -17,8 +21,16 @@ const HomePage = () => {
 const Wrapper = styled.div`
   display: grid;
   grid-template-areas:
-    "header header"
-    "sidebar  ItemsGrid";
+    "header header header header header header "
+    "sidebar  main main main main main"
+    "footer footer footer footer footer footer";
+  grid-template-columns: 300px auto;
+  height: 100vh;
+`;
+
+const ItemGridWrapper = styled.main`
+  grid-area: main;
+  padding: 16px 20px;
 `;
 
 export default HomePage;
