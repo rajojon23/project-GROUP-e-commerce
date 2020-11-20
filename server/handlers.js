@@ -1,6 +1,5 @@
-// const { updatedItemArr, updatedArr } = require("./dataTest");
-const { updatedItemArr, updatedArr } = require("./data");
-
+const { updatedItemArr, updatedArr } = require("./dataTest");
+//const { updatedItemArr, updatedArr } = require("./data");
 // returns all the items
 const handleAllItems = (req, res) => {
   if (updatedItemArr.length === 0) {
@@ -15,7 +14,6 @@ const handleAllItems = (req, res) => {
     });
   }
 };
-
 // returns data about a single item by id
 const handleItemById = (req, res) => {
   const { id } = req.params;
@@ -33,6 +31,49 @@ const handleItemById = (req, res) => {
   }
 };
 
+const CartaddItem = (req, res) => {
+  console.log(req.body);
+  const { id } = req.params;
+  const searchedItem = updatedItemArr.find((item) => item.id === Number(id));
+  if (!searchedItem) {
+    res.status(404).json({
+      status: 404,
+      message: "Item not found",
+    });
+  } else {
+    res.status(200).json({
+      status: 200,
+      data: { searchedItem },
+    });
+  }
+};
+
+const CartDeleteItem = (req, res) => {
+  console.log(req.body);
+  const { id } = req.params;
+  const searchedItem = updatedItemArr.find((item) => item.id === Number(id));
+  if (!searchedItem) {
+    res.status(404).json({
+      status: 404,
+      message: "Item not found",
+    });
+  } else {
+    res.status(200).json({
+      status: 202,
+      data: "Item has been removed from you Cart",
+    });
+  }
+};
+
+// const updateCart = (req, res) => {
+//   const { id } = req.params;
+//   const updateCartItem;
+//   res.status(200).json({
+//     status: 200,
+//     data: updatedArr,
+//   });
+// };
+
 // returns the sellers
 const handleCompanies = (req, res) => {
   res.status(200).json({
@@ -45,6 +86,9 @@ module.exports = {
   handleAllItems,
   handleItemById,
   handleCompanies,
+  CartaddItem,
+  CartDeleteItem,
+  // updateCart,
 };
 // fs.writeFileSync("server/data/companies.json", JSON.stringify(updatedArr));
 // fs.writeFileSync("server/data/items.json", JSON.stringify(updatedItemArr));
