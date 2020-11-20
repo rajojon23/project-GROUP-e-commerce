@@ -3,7 +3,7 @@ import styled from "styled-components";
 import bannerImg from "../../assets/banner-watch.jpg";
 import { Icon } from "react-icons-kit";
 import { ic_shopping_cart } from "react-icons-kit/md/ic_shopping_cart";
-// This will be the header. We will have the title and a picture as a banner
+// This will be the header. We could have the title and a picture as a banner
 
 const Header = () => {
   return (
@@ -44,6 +44,8 @@ const Banner = styled.img`
   height: 300px;
 `;
 
-const Title = styled.h1``;
+const Title = styled.h1`
+  font-family: fr;
+`;
 
 export default Header;

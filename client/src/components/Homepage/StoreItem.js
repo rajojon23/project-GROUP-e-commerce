@@ -42,4 +42,4 @@ const Title = styled.h2`
   font-weight: 600;
 `;
 
-export default Wrapper;
+export default StoreItem;
