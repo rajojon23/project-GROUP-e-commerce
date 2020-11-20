@@ -1,6 +1,7 @@
-
 // const { updatedItemArr, updatedArr } = require("./dataTest");
 const { updatedItemArr, updatedArr } = require("./data");
+
+console.log(updatedItemArr);
 
 // returns all the items
 const handleAllItems = (req, res) => {
@@ -34,21 +35,27 @@ const handleItemById = (req, res) => {
   }
 };
 
-// returns the sellers
-const handleCompanies = (req, res) => {
+const updateCart = (req, res) => {
   res.status(200).json({
     status: 200,
     data: updatedArr,
   });
-};
 
-module.exports = {
-  handleAllItems,
-  handleItemById,
-  handleCompanies,
-  updateCart
+  // returns the sellers
+  const handleCompanies = (req, res) => {
+    res.status(200).json({
+      status: 200,
+      data: updatedItemArr,
+    });
+  };
+
+  module.exports = {
+    handleAllItems,
+    handleItemById,
+    handleCompanies,
+    updateCart,
+  };
 };
 // fs.writeFileSync("server/data/companies.json", JSON.stringify(updatedArr));
+
 // fs.writeFileSync("server/data/items.json", JSON.stringify(updatedItemArr));
-
-

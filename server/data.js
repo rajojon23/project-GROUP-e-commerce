@@ -30,6 +30,8 @@ companies.forEach((item) => {
   });
 });
 
-fs.writeFileSync("server/data/fixedCompanies.json", JSON.stringify(updatedArr));
+console.log(updatedItemArr);
 
-fs.writeFileSync("server/data/items.json", JSON.stringify(updatedItemArr));
+// fs.writeFileSync("server/data/fixedCompanies.json", JSON.stringify(updatedArr));
+
+// fs.writeFileSync("server/data/items.json", JSON.stringify(updatedItemArr));

@@ -27,4 +27,4 @@ companies.forEach((item) => {
 module.exports = {
   updatedItemArr,
   updatedArr,
-}; //hello
+};
