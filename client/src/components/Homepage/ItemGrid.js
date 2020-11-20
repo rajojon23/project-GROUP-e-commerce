@@ -1,8 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-
+import StoreItem from "./StoreItem";
 const ItemGrid = () => {
-  return <Wrapper>Grid with all the items</Wrapper>;
+  return (
+    <Wrapper>
+      Grid with all the items
+      <StoreItem />
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.div`

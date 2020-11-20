@@ -4,6 +4,7 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import ItemGrid from "./ItemGrid";
 import Footer from "./Footer";
+// This is the structure that could work for the homepage
 
 const HomePage = () => {
   return (

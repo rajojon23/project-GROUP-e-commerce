@@ -4,7 +4,6 @@ import styled from "styled-components";
 const Footer = () => {
   return (
     <Wrapper>
-      FOOTER
       <div>
         <InfoContainer>
           <li>Contact Us</li>
