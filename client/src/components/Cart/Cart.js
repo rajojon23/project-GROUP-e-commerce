@@ -189,6 +189,7 @@ const Wrapper = styled.div`
     .itemHead{
         margin-bottom: 40px;
         color: gray;
+        margin-top: 25px;
     }
 
     .itemAdded{
