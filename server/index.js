@@ -9,6 +9,9 @@ const {
   handleAllItems,
   handleItemById,
   handleCompanies,
+  CartaddItem,
+  CartDeleteItem,
+  updateCart,
 } = require("./handlers");
 
 //const { updateCart } = require("./handlers");
@@ -42,9 +45,9 @@ express()
   .get("/item/:id", handleItemById)
   .get("/companies", handleCompanies)
 
-  //.get("/cart/item/:id", updateCart)
-  .post("/cart/addItem/:id")
-  .delete("/cart/item/:id")
+  .post("/cart/item/:id", CartaddItem)
+  .put("/cart/item/:id")
+  .delete("/cart/item/:id", CartDeleteItem)
 
   .get("*", (req, res) => {
     res.status(404).json({
