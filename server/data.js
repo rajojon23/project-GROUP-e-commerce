@@ -30,8 +30,7 @@ companies.forEach((item) => {
   });
 });
 
-console.log(updatedItemArr);
-
-// fs.writeFileSync("server/data/fixedCompanies.json", JSON.stringify(updatedArr));
-
-// fs.writeFileSync("server/data/items.json", JSON.stringify(updatedItemArr));
+module.exports = {
+  updatedItemArr,
+  updatedArr,
+};
