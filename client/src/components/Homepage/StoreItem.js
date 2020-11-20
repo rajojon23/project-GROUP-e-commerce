@@ -1,13 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 
-const StoreItem = () => {
+const StoreItem = ({ item }) => {
+  const {
+    id,
+    name,
+    price,
+    bodyLocation,
+    category,
+    image,
+    numInStock,
+    companyId,
+  } = item;
   return (
     <Wrapper>
       <ImageWrapper>
         <Image alt="" />
       </ImageWrapper>
-      <Title>ITEM TITLE</Title>
+      <Title>{name}</Title>
+      <Image src={image} />
+      {price}
     </Wrapper>
   );
 };

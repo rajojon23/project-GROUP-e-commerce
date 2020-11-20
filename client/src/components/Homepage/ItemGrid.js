@@ -1,11 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import StoreItem from "./StoreItem";
+
 const ItemGrid = () => {
+  const [items, setItems] = useState([]);
+  const [sellers, setSellers] = useState([]);
+
+  useEffect(() => {
+    fetch("/allitems")
+      .then((res) => res.json())
+      .then((data) => setItems([...data.data]))
+      .catch((err) => console.log(err));
+
+    fetch("/companies")
+      .then((res) => res.json())
+      .then((data) => {
+        setSellers([...data.data]);
+        console.log(data.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <Wrapper>
-      Grid with all the items
-      <StoreItem />
+      {items &&
+        sellers &&
+        items.map((item) => {
+          return <StoreItem key={item.id} item={{ ...item }} />;
+        })}
     </Wrapper>
   );
 };
