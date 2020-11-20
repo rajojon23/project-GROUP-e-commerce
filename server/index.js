@@ -3,8 +3,18 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
+
+
+// thira
+const {
+  handleAllItems,
+  handleItemById,
+  handleCompanies,
+} = require("./handlers");
+
 const { updateCart } = require("./handlers");
 // const { updateCart, addItem, deleteCartItem } = require("./handlers");
+
 
 const PORT = 4000;
 
@@ -28,6 +38,12 @@ express()
 
   // REST endpoints?
   .get("/bacon", (req, res) => res.status(200).json("🥓"))
+
+  // thira's get endpoint
+  .get("/allitems", handleAllItems)
+  .get("/item/:id", handleItemById)
+  .get("/companies", handleCompanies)
+
   .get("/cart/item/:id", updateCart)
   .post("/cart/addItem/:id")
   .delete("/cart/item/:id")
@@ -38,5 +54,6 @@ express()
       message: "This is obviously not what you are looking for.",
     });
   })
+
 
   .listen(PORT, () => console.info(`Listening on port ${PORT}`));
