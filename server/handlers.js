@@ -1,4 +1,6 @@
-const { updatedItemArr, updatedArr } = require("./dataTest");
+
+// const { updatedItemArr, updatedArr } = require("./dataTest");
+const { updatedItemArr, updatedArr } = require("./data");
 
 // returns all the items
 const handleAllItems = (req, res) => {
@@ -44,6 +46,9 @@ module.exports = {
   handleAllItems,
   handleItemById,
   handleCompanies,
+  updateCart
 };
 // fs.writeFileSync("server/data/companies.json", JSON.stringify(updatedArr));
 // fs.writeFileSync("server/data/items.json", JSON.stringify(updatedItemArr));
+
+
