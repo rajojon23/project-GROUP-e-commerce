@@ -14,6 +14,11 @@ const HomePage = () => {
   );
 };
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar  ItemsGrid";
+`;
 
 export default HomePage;
