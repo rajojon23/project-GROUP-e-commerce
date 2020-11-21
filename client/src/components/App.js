@@ -9,10 +9,15 @@ import GlobalStyles from "./Globalstyles";
 function App() {
   return (
     <BrowserRouter>
-      <Wrapper>
         <GlobalStyles />
-        <HomePage />
-      </Wrapper>
+      <Switch>
+          <Route exact path="/">
+            <HomePage />
+          </Route>
+          <Route exact path="/cart">
+            <Cart/>
+          </Route>
+      </Switch>
     </BrowserRouter>
   );
 }

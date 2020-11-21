@@ -3,17 +3,20 @@ import styled from "styled-components";
 import bannerImg from "../../assets/banner-watch.jpg";
 import { Icon } from "react-icons-kit";
 import { ic_shopping_cart } from "react-icons-kit/md/ic_shopping_cart";
+import { NavLink } from "react-router-dom";
 // This will be the header. We could have the title and a picture as a banner
 
 const Header = () => {
   return (
-    <Wrapper>
-      <Top>
-        <Title>STORE NAME</Title>
-        <Icon icon={ic_shopping_cart} size={32} className="icon" />
-      </Top>
-      <Banner alt="store-banner" src={bannerImg} />
-    </Wrapper>
+
+      <Wrapper>
+        <Top>
+          <Title>STORE NAME</Title>
+          <NavLink to="/cart"><Icon icon={ic_shopping_cart} size={32} className="icon" /></NavLink>
+        </Top>
+        <Banner alt="store-banner" src={bannerImg} />
+      </Wrapper>
+
   );
 };
 
@@ -26,6 +29,7 @@ const Wrapper = styled.div`
     top: 25%;
     right: 20px;
     cursor: pointer;
+    color: #000;
   }
 `;
 

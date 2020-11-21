@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const StoreItem = ({ item }) => {
+const StoreItem = ({ item, company }) => {
   const {
     id,
     name,
@@ -12,13 +12,18 @@ const StoreItem = ({ item }) => {
     numInStock,
     companyId,
   } = item;
+
+  const { id: companyIdNum, name: companyName, url, country } = company;
+
   return (
     <Wrapper>
       <ImageWrapper>
-        <Image src={image} />
+
+        <Image alt="item" src={image} />
       </ImageWrapper>
       <Title>{name}</Title>
-      {price}
+      {price} {companyName}
+
     </Wrapper>
   );
 };
