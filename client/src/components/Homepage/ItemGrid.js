@@ -26,7 +26,12 @@ const ItemGrid = () => {
       {items &&
         sellers &&
         items.map((item) => {
-          return <StoreItem key={item.id} item={{ ...item }} />;
+          const company = sellers.find(
+            (seller) => seller._id === item.companyId
+          );
+          return (
+            <StoreItem key={item.id} item={{ ...item }} company={company} />
+          );
         })}
     </Wrapper>
   );
