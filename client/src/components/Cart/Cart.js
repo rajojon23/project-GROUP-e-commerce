@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { NavLink } from "react-router-dom";
+
 // import CartItem from './CartItem';
 // import { getStoreItemArray } from "../../reducers";
 
@@ -7,7 +9,6 @@ import styled from 'styled-components';
 
 const Cart = () => {
 
-    console.log("cart display");
     // const storeItems  = useSelector(getStoreItemArray);
     
 
@@ -21,7 +22,8 @@ const Cart = () => {
 
   return (
     <Wrapper>
-        <div className="subtitle">Main/ Shopping Cart</div>
+        
+        <div className="homeLink"><NavLink to="/">Main</NavLink>/ Shopping Cart</div>
 
         <div className="cartTitle">Your Cart</div>
 
@@ -33,7 +35,7 @@ const Cart = () => {
                 <div className="itemRow">
                         <div>
                             <div className="itemHead" style={{paddingLeft: 40}}>Product</div>
-                            <div class="itemContainer">
+                            <div className="itemContainer">
                                 <img className="itemImg" src="https://d2fn6rbs5rhk8j.cloudfront.net/wp-content/uploads/2018/12/fashion-unisex-watch-rose-gold-black-dial-timepiece-direct-watch-manufacturer-by-3watches.com-3w-ct01-13.jpg" />
                                 <div className="itemDetails">
                                     <span>Garmin Vivofita,, Fitness Band</span>
@@ -78,7 +80,7 @@ const Cart = () => {
                     <div className="itemRow" >
                         <div>
                             <div className="itemHead itemAdded" style={{paddingLeft: 40}}>Product</div>
-                            <div class="itemContainer">
+                            <div className="itemContainer">
                                 <img className="itemImg" src="https://d2fn6rbs5rhk8j.cloudfront.net/wp-content/uploads/2018/12/fashion-unisex-watch-rose-gold-black-dial-timepiece-direct-watch-manufacturer-by-3watches.com-3w-ct01-13.jpg" />
                                 <div className="itemDetails">
                                     <span>Garmin Vivofita,, Fitness Band</span>
@@ -140,7 +142,9 @@ const Wrapper = styled.div`
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
     
-
+    .homeLink{
+        color: gray;
+    }
     .subtitle{
         margin: 10px 0 10px 0px;
         padding-left: 30px;
