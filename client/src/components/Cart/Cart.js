@@ -6,6 +6,8 @@ import styled from 'styled-components';
 
 
 const Cart = () => {
+
+    console.log("cart display");
     // const storeItems  = useSelector(getStoreItemArray);
     
 
