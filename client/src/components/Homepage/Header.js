@@ -12,7 +12,6 @@ const Header = () => {
         <Title>STORE NAME</Title>
         <Icon icon={ic_shopping_cart} size={32} className="icon" />
       </Top>
-
       <Banner alt="store-banner" src={bannerImg} />
     </Wrapper>
   );
@@ -24,7 +23,7 @@ const Wrapper = styled.div`
 
   .icon {
     position: absolute;
-    top: 5px;
+    top: 25%;
     right: 20px;
     cursor: pointer;
   }
@@ -45,7 +44,7 @@ const Banner = styled.img`
 `;
 
 const Title = styled.h1`
-  font-family: fr;
+  font-family: "Roboto", sans-serif;
 `;
 
 export default Header;

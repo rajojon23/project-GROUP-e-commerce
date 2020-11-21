@@ -15,10 +15,9 @@ const StoreItem = ({ item }) => {
   return (
     <Wrapper>
       <ImageWrapper>
-        <Image alt="" />
+        <Image src={image} />
       </ImageWrapper>
       <Title>{name}</Title>
-      <Image src={image} />
       {price}
     </Wrapper>
   );
@@ -39,6 +38,7 @@ const ImageWrapper = styled.div`
   overflow: hidden;
   border-radius: 12px;
   border: 3px solid rgba(0, 0, 0, 0.1);
+  padding: 10px;
 `;
 
 const Image = styled.img`
@@ -50,7 +50,7 @@ const Title = styled.h2`
   margin: 0;
   margin-bottom: 16px;
   margin-top: 8px;
-  font-size: 22px;
+  font-size: 14px;
   font-weight: 600;
 `;
 
