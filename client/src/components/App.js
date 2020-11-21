@@ -8,9 +8,18 @@ import HomePage from "./Homepage/HomePage";
 function App() {
   return (
     <BrowserRouter>
-      <Wrapper>
+      {/* <Wrapper>
         <HomePage />
-      </Wrapper>
+      </Wrapper> */}
+
+      <Switch>
+          <Route exact path="/">
+            <HomePage />
+          </Route>
+          <Route exact path="/cart">
+            <Cart/>
+          </Route>
+      </Switch>
     </BrowserRouter>
   );
 }
