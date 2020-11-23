@@ -8,6 +8,7 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
+
       <Wrapper>
         <Top>
           <Title>STORE NAME</Title>
@@ -15,6 +16,7 @@ const Header = () => {
         </Top>
         <Banner alt="store-banner" src={bannerImg} />
       </Wrapper>
+
   );
 };
 
@@ -24,7 +26,7 @@ const Wrapper = styled.div`
 
   .icon {
     position: absolute;
-    top: 5px;
+    top: 25%;
     right: 20px;
     cursor: pointer;
     color: #000;
@@ -46,7 +48,7 @@ const Banner = styled.img`
 `;
 
 const Title = styled.h1`
-  font-family: fr;
+  font-family: "Roboto", sans-serif;
 `;
 
 export default Header;
