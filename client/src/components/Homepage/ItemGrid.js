@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import StoreItem from "./StoreItem";
 
+import { useDispatch } from 'react-redux';
+import { addItem } from '../../actions';
+
 const ItemGrid = () => {
   const [items, setItems] = useState([]);
   const [sellers, setSellers] = useState([]);

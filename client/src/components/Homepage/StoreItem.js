@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { addItem } from '../../actions';
+import { useDispatch } from 'react-redux';
 
 const StoreItem = ({ item, company }) => {
   const {
@@ -15,16 +17,22 @@ const StoreItem = ({ item, company }) => {
 
   const { id: companyIdNum, name: companyName, url, country } = company;
 
+  const dispatch = useDispatch();
+
   return (
     <Wrapper>
       <ImageWrapper>
         <Image alt="item" src={image} />
       </ImageWrapper>
       <Title>{name}</Title>
+
       <p>{companyName}</p>
       <btnWrapper>
-        <Add> Add to Cart -{price} </Add>
+        <Add onClick={() =>
+          dispatch(addItem({ id, name, price }))
+        } > Add to Cart -{price} </Add>
       </btnWrapper>
+
     </Wrapper>
   );
 };
