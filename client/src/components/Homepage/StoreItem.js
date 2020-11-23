@@ -88,7 +88,7 @@ const Title = styled.h2`
   font-weight: 600;
 `;
 
-const btnWrapper = styled.div`
+const BtnWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
