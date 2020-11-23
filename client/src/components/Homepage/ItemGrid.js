@@ -53,9 +53,9 @@ const ItemGrid = () => {
         <div className="pagination">
           <Pagination
             activePage={activePage}
-            itemsCountPerPage={3}
+            itemsCountPerPage={15}
             totalItemsCount={items.length}
-            pageRangeDisplayed={3}
+            pageRangeDisplayed={5}
             onChange={handlePageChange}
           />
         </div>
