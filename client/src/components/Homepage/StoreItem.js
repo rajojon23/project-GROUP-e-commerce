@@ -29,7 +29,7 @@ const StoreItem = ({ item, company }) => {
       {numInStock === 0 ? (
         <>
           <p>Out of stock</p>
-          <btnWrapper>
+          <BtnWrapper>
             <Add
               disabled
               onClick={() => dispatch(addItem({ id, name, price, image }))}
@@ -37,17 +37,17 @@ const StoreItem = ({ item, company }) => {
               {" "}
               Add to Cart -{price}{" "}
             </Add>
-          </btnWrapper>
+          </BtnWrapper>
         </>
       ) : (
         <>
           <p>{numInStock} left in stock</p>
-          <btnWrapper>
+          <BtnWrapper>
             <Add onClick={() => dispatch(addItem({ id, name, price, image }))}>
               {" "}
               Add to Cart -{price}{" "}
             </Add>
-          </btnWrapper>
+          </BtnWrapper>
         </>
       )}
     </Wrapper>
