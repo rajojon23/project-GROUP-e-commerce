@@ -43,7 +43,7 @@ const StoreItem = ({ item, company }) => {
         <>
           <p>{numInStock} left in stock</p>
           <btnWrapper>
-            <Add onClick={() => dispatch(addItem({ id, name, price, image }))}>
+            <Add onClick={() => dispatch(addItem({ id, name, price, image, numInStock }))}>
               {" "}
               Add to Cart -{price}{" "}
             </Add>
