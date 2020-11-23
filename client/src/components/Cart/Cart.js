@@ -38,93 +38,67 @@ const Cart = () => {
             <div className="tableMiddle">
                 <div className="itemRow">
                         <div>
-                            <div className="itemHead" style={{paddingLeft: 40}}>Product</div>
-                            <div className="itemContainer">
-                                <img className="itemImg" src="https://d2fn6rbs5rhk8j.cloudfront.net/wp-content/uploads/2018/12/fashion-unisex-watch-rose-gold-black-dial-timepiece-direct-watch-manufacturer-by-3watches.com-3w-ct01-13.jpg" />
-                                <div className="itemDetails">
-                                    <span>Garmin Vivofita,, Fitness Band</span>
-                                    <span>For: wrist</span>
-                                </div>
-
-                            </div>
+                            <div className="tableItemHead" style={{paddingLeft: 40}}>Product</div>
                         </div>
                         <div>
-                            <div className="itemHead">Size</div>
-                            <select>
-                                <option>XL</option>
-                                <option>XXL</option>
-                                <option>XS</option>
-                                <option>S</option>
-                            </select>
-                        </div>
-                        <div>
-                            <div className="itemHead">Price</div>
+                            <div className="tableItemHead">Price</div>
                             <div className="itemPrice">
-                            $<span>50.00</span>
+                        
                             </div>
                         </div>
                         <div>
-                        <div className="itemHead">Quantity</div>
-                            <select>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                            </select>  
-                        </div>
+                            <div className="tableItemHead">Quantity</div> 
+                        </div>    
                         <div>
-                            <div className="itemHead">Total Item Price</div>
-                            <div className="totalItemPrice">
-                            $<span>100.00</span>
-                            </div>    
-                            
+                            <div className="tableItemHead">Total Item Price</div>
                         </div>
-                        <button className="buttonPrice">X</button>   
+                        <button className="buttonPrice" style={{visibility: 'hidden'}}>X</button>   
                 </div>
                 {/* divideer */}
-                    <div className="itemRow" >
-                        <div>
-                            <div className="itemHead itemAdded" style={{paddingLeft: 40}}>Product</div>
-                            <div className="itemContainer">
-                                <img className="itemImg" src="https://d2fn6rbs5rhk8j.cloudfront.net/wp-content/uploads/2018/12/fashion-unisex-watch-rose-gold-black-dial-timepiece-direct-watch-manufacturer-by-3watches.com-3w-ct01-13.jpg" />
-                                <div className="itemDetails">
-                                    <span>Garmin Vivofita,, Fitness Band</span>
-                                    <span>For: wrist</span>
-                                </div>
 
+
+                    {
+                        
+                        storeItems.map((item) => (
+                            <div className="itemRow" >
+                                    <div>
+                                        <div className="itemHead itemAdded" style={{paddingLeft: 40}}>Product</div>
+                                        <div className="itemContainer">
+                                            <img className="itemImg" src={item.image} />
+                                            <div className="itemDetails">
+                                                <span>{item.name}</span>
+                                                <span>For: wrist</span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div className="itemHead itemAdded">Price</div>
+                                        <div className="itemPrice">
+                                        <span>{item.price}</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                    <div className="itemHead itemAdded">Quantity</div>
+                                        <select>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                        </select>  
+                                    </div>
+                                    <div>
+                                        <div className="itemHead itemAdded">Total Item Price</div>
+                                        <div className="totalItemPrice">
+                                        $<span>100.00</span>
+                                        </div>    
+                                        
+                                    </div>
+                                    <button className="buttonPrice">X</button>   
                             </div>
-                        </div>
-                        <div>
-                            <div className="itemHead itemAdded">Size</div>
-                            <select>
-                                <option>XL</option>
-                                <option>XXL</option>
-                                <option>XS</option>
-                                <option>S</option>
-                            </select>
-                        </div>
-                        <div>
-                            <div className="itemHead itemAdded">Price</div>
-                            <div className="itemPrice">
-                            $<span>50.00</span>
-                            </div>
-                        </div>
-                        <div>
-                        <div className="itemHead itemAdded">Quantity</div>
-                            <select>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                            </select>  
-                        </div>
-                        <div>
-                            <div className="itemHead itemAdded">Total Item Price</div>
-                            <div className="totalItemPrice">
-                            $<span>100.00</span>
-                            </div>    
-                            
-                        </div>
-                        <button className="buttonPrice">X</button>   
-                </div>
+                        ))
+
+
+                    }
 
                    
             </div>
@@ -192,11 +166,19 @@ const Wrapper = styled.div`
         justify-content: space-around;
         margin: 0 55px 0 55px;
     }
+
+    .tableItemHead{
+        padding-left: 40px;
+        margin-top: 25px;
+        color: gray;
+    }
     .itemContainer{
         display: flex;
         flex-direction: row;
         padding: 20px;
         margin-top: -30px;
+        width: 300px;
+        // padding-left: 200px;
 
         img{
             width: 90px;
@@ -207,6 +189,7 @@ const Wrapper = styled.div`
         margin-bottom: 40px;
         color: gray;
         margin-top: 25px;
+        margin-left: 200px;
     }
 
     .itemAdded{
@@ -215,9 +198,11 @@ const Wrapper = styled.div`
     .itemDetails{
         display: flex;
         flex-direction: column;
-        width: 35%;
+        width: 55%;
+        margin-left: 15px;
         font-size: 14px;
         justify-content: center;
+
     }
 
     select{
@@ -225,10 +210,12 @@ const Wrapper = styled.div`
         align-self: center;
         border-radius: 0;
         padding: 3px;
+        margin-left: 20px;
     }
     .totalItemPrice, .itemPrice {
         align-self: center;
         padding-top: 4px;
+        margin-left: 20px;
     }
     .buttonPrice{
         height: 30px;

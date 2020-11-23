@@ -26,12 +26,39 @@ const StoreItem = ({ item, company }) => {
       </ImageWrapper>
       <Title>{name}</Title>
       <p>{companyName}</p>
+<<<<<<< HEAD
       <BtnWrapper>
         <Add onClick={() => dispatch(addItem({ id, name, price }))}>
           {" "}
           Add to Cart -{price}{" "}
         </Add>
       </BtnWrapper>
+=======
+      {numInStock === 0 ? (
+        <>
+          <p>Out of stock</p>
+          <btnWrapper>
+            <Add
+              disabled
+              onClick={() => dispatch(addItem({ id, name, price, image }))}
+            >
+              {" "}
+              Add to Cart -{price}{" "}
+            </Add>
+          </btnWrapper>
+        </>
+      ) : (
+        <>
+          <p>{numInStock} left in stock</p>
+          <btnWrapper>
+            <Add onClick={() => dispatch(addItem({ id, name, price, image }))}>
+              {" "}
+              Add to Cart -{price}{" "}
+            </Add>
+          </btnWrapper>
+        </>
+      )}
+>>>>>>> eca1a900727c53a57147eb90e62feeddca8893ed
     </Wrapper>
   );
 };
@@ -87,6 +114,10 @@ const Add = styled.button`
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 `;
 
 export default StoreItem;
