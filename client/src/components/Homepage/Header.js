@@ -8,15 +8,15 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-
-      <Wrapper>
-        <Top>
-          <Title>STORE NAME</Title>
-          <NavLink to="/cart"><Icon icon={ic_shopping_cart} size={32} className="icon" /></NavLink>
-        </Top>
-        <Banner alt="store-banner" src={bannerImg} />
-      </Wrapper>
-
+    <Wrapper>
+      <Top>
+        <Title>Gucci Mane</Title>
+        <NavLink to="/cart">
+          <Icon icon={ic_shopping_cart} size={32} className="icon" />
+        </NavLink>
+      </Top>
+      <Banner alt="store-banner" src={bannerImg} />
+    </Wrapper>
   );
 };
 

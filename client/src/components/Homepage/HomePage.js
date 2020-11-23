@@ -14,7 +14,9 @@ const HomePage = () => {
       <ItemGridWrapper>
         <ItemGrid />
       </ItemGridWrapper>
-      <Footer />
+      <FooterWrapper>
+        <Footer />
+      </FooterWrapper>
     </Wrapper>
   );
 };
@@ -31,6 +33,11 @@ const Wrapper = styled.div`
 
 const ItemGridWrapper = styled.main`
   grid-area: main;
+  padding: 16px 20px;
+`;
+
+const FooterWrapper = styled.footer`
+  grid-area: footer;
   padding: 16px 20px;
 `;
 

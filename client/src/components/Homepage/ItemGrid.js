@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import StoreItem from "./StoreItem";
-
+import { FaAngleDoubleLeft } from "react-icons/fa";
+import { FaAngleDoubleRight } from "react-icons/fa";
+import { FaAngleLeft } from "react-icons/fa";
+import { FaAngleRight } from "react-icons/fa";
 
 import Pagination from "react-js-pagination";
 
-import { useDispatch } from 'react-redux';
-import { addItem } from '../../actions';
-
+import { useDispatch } from "react-redux";
+import { addItem } from "../../actions";
 
 const ItemGrid = () => {
   const [items, setItems] = useState([]);
@@ -30,7 +32,6 @@ const ItemGrid = () => {
   }, []);
 
   const todosPerPage = 15;
-
   const indexOfLastTodo = activePage * todosPerPage;
   const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
   const currentTodos = items.slice(indexOfFirstTodo, indexOfLastTodo);
@@ -54,17 +55,20 @@ const ItemGrid = () => {
             <StoreItem key={item.id} item={{ ...item }} company={company} />
           );
         })}
-      <div>
-        <div className="pagination">
-          <Pagination
-            activePage={activePage}
-            itemsCountPerPage={15}
-            totalItemsCount={items.length}
-            pageRangeDisplayed={5}
-            onChange={handlePageChange}
-          />
-        </div>
-      </div>
+      <PaginationContainer>
+        <Pagination
+          className="pagination"
+          activePage={activePage}
+          itemsCountPerPage={15}
+          totalItemsCount={items.length}
+          pageRangeDisplayed={5}
+          onChange={handlePageChange}
+          prevPageText={<FaAngleLeft />}
+          nextPageText={<FaAngleRight />}
+          firstPageText={<FaAngleDoubleLeft />}
+          lastPageText={<FaAngleDoubleRight />}
+        />
+      </PaginationContainer>
     </Wrapper>
   );
 };
@@ -72,6 +76,55 @@ const ItemGrid = () => {
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  grid-gap: 20px;
+  grid-gap: 40px;
+  margin-right: 20px;
+  grid-template-areas:
+    "main main main main main"
+    "main main main main main"
+    "main main main main main"
+    "   .footer . . .  ";
 `;
+
+const PaginationContainer = styled.footer`
+  grid-area: footer;
+  display: grid;
+  align-self: end;
+
+  .pagination {
+    display: flex;
+    justify-self: center;
+  }
+
+  .pagiantion ul {
+  }
+
+  .pagination a {
+    text-decoration: none;
+    font-weight: 600;
+    color: white;
+  }
+
+  .pagination li {
+    color: white;
+    float: left;
+    padding: 8px 16px;
+    list-style-type: none;
+  }
+
+  .pagination a.undefined {
+    color: black;
+  }
+
+  .pagination li.active {
+    border-bottom: 4px solid red;
+    background-color: rgb(213, 213, 195, 0.2);
+    border-radius: 5px;
+  }
+
+  .pagination li:hover:not(.active) {
+    background-color: rgb(213, 213, 195, 0.1);
+    border-radius: 5px;
+  }
+`;
+
 export default ItemGrid;
