@@ -1,33 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import StoreItem from "./StoreItem";
+import { ItemsContext } from "./ItemsContext";
 
 const ItemGrid = () => {
-  const [items, setItems] = useState([]);
-  const [sellers, setSellers] = useState([]);
-
-  useEffect(() => {
-    fetch("/allitems")
-      .then((res) => res.json())
-      .then((data) => setItems([...data.data]))
-      .catch((err) => console.log(err));
-
-    fetch("/companies")
-      .then((res) => res.json())
-      .then((data) => {
-        setSellers([...data.data]);
-        console.log(data.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  const { loadingItems, loadingCompanies, items, companies } = React.useContext(
+    ItemsContext
+  );
 
   return (
     <Wrapper>
-      {items &&
-        sellers &&
+      {loadingItems === "loading" && loadingCompanies === "loading" && (
+        <p>...loading</p>
+      )}
+      {loadingItems === "loaded" &&
+        loadingCompanies === "loaded" &&
         items.map((item) => {
-          const company = sellers.find(
-            (seller) => seller._id === item.companyId
+          const company = companies.find(
+            (brand) => brand._id === item.companyId
           );
           return (
             <StoreItem key={item.id} item={{ ...item }} company={company} />
