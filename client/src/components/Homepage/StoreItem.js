@@ -22,18 +22,16 @@ const StoreItem = ({ item, company }) => {
   return (
     <Wrapper>
       <ImageWrapper>
-
         <Image alt="item" src={image} />
       </ImageWrapper>
       <Title>{name}</Title>
-      {price} {companyName}
-      <button
-         onClick={() =>
+
+      <p>{companyName}</p>
+      <btnWrapper>
+        <Add onClick={() =>
           dispatch(addItem({ id, name, price }))
-        }     
-      > 
-        Add to Cart
-      </button>
+        } > Add to Cart -{price} </Add>
+      </btnWrapper>
 
     </Wrapper>
   );
@@ -55,11 +53,14 @@ const ImageWrapper = styled.div`
   border-radius: 12px;
   border: 3px solid rgba(0, 0, 0, 0.1);
   padding: 10px;
+  display: flex;
+  justify-content: center;
 `;
 
 const Image = styled.img`
   display: block;
   max-width: 100%;
+  align-self: center;
 `;
 
 const Title = styled.h2`
@@ -68,6 +69,25 @@ const Title = styled.h2`
   margin-top: 8px;
   font-size: 14px;
   font-weight: 600;
+`;
+
+const btnWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const Add = styled.button`
+  position: relative;
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  background: #ebc9a2;
+  color: white;
+  border: none;
+  padding: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
 `;
 
 export default StoreItem;
