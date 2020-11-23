@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { addItem } from '../../actions';
-import { useDispatch } from 'react-redux';
+import { addItem } from "../../actions";
+import { useDispatch } from "react-redux";
 
 const StoreItem = ({ item, company }) => {
   const {
@@ -26,11 +26,12 @@ const StoreItem = ({ item, company }) => {
       </ImageWrapper>
       <Title>{name}</Title>
       <p>{companyName}</p>
-      <btnWrapper>
-        <Add onClick={() =>
-          dispatch(addItem({ id, name, price }))
-        } > Add to Cart -{price} </Add>
-      </btnWrapper>
+      <BtnWrapper>
+        <Add onClick={() => dispatch(addItem({ id, name, price }))}>
+          {" "}
+          Add to Cart -{price}{" "}
+        </Add>
+      </BtnWrapper>
     </Wrapper>
   );
 };
@@ -69,7 +70,7 @@ const Title = styled.h2`
   font-weight: 600;
 `;
 
-const btnWrapper = styled.div`
+const BtnWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
