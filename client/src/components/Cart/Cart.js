@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from "react-router-dom";
+import { useSelector } from 'react-redux';
+import { getStoreItemArray } from "../../reducers";
+
 
 // import CartItem from './CartItem';
 // import { getStoreItemArray } from "../../reducers";
@@ -9,6 +12,7 @@ import { NavLink } from "react-router-dom";
 
 const Cart = () => {
 
+    const storeItems  = useSelector(getStoreItemArray);
     // const storeItems  = useSelector(getStoreItemArray);
     
 
@@ -134,6 +138,13 @@ const Cart = () => {
         
     </Wrapper>
   );
+};
+
+const CartItem = () => {
+
+   
+
+
 };
 
 const Wrapper = styled.div`
