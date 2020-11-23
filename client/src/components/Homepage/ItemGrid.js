@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import StoreItem from "./StoreItem";
+
 import { FaAngleDoubleLeft } from "react-icons/fa";
 import { FaAngleDoubleRight } from "react-icons/fa";
 import { FaAngleLeft } from "react-icons/fa";
@@ -42,6 +43,7 @@ const ItemGrid = () => {
     console.log(`active page is ${pageNumber}`);
     setCurrentPage(pageNumber);
   };
+  console.log({ items });
 
   return (
     <Wrapper>

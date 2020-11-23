@@ -26,12 +26,30 @@ const StoreItem = ({ item, company }) => {
       </ImageWrapper>
       <Title>{name}</Title>
       <p>{companyName}</p>
-      <btnWrapper>
-        <Add onClick={() => dispatch(addItem({ id, name, price }))}>
-          {" "}
-          Add to Cart {price}{" "}
-        </Add>
-      </btnWrapper>
+      {numInStock === 0 ? (
+        <>
+          <p>Out of stock</p>
+          <btnWrapper>
+            <Add
+              disabled
+              onClick={() => dispatch(addItem({ id, name, price, image }))}
+            >
+              {" "}
+              Add to Cart -{price}{" "}
+            </Add>
+          </btnWrapper>
+        </>
+      ) : (
+        <>
+          <p>{numInStock} left in stock</p>
+          <btnWrapper>
+            <Add onClick={() => dispatch(addItem({ id, name, price, image }))}>
+              {" "}
+              Add to Cart -{price}{" "}
+            </Add>
+          </btnWrapper>
+        </>
+      )}
     </Wrapper>
   );
 };
@@ -71,7 +89,7 @@ const Title = styled.h2`
   color: black;
 `;
 
-const btnWrapper = styled.div`
+const BtnWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   :hover {
@@ -91,6 +109,10 @@ const Add = styled.button`
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 `;
 
 export default StoreItem;
