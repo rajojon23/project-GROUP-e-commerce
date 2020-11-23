@@ -2,7 +2,12 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import StoreItem from "./StoreItem";
 
+
 import Pagination from "react-js-pagination";
+
+import { useDispatch } from 'react-redux';
+import { addItem } from '../../actions';
+
 
 const ItemGrid = () => {
   const [items, setItems] = useState([]);
