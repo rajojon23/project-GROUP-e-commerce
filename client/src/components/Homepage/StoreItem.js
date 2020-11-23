@@ -26,14 +26,6 @@ const StoreItem = ({ item, company }) => {
       </ImageWrapper>
       <Title>{name}</Title>
       <p>{companyName}</p>
-<<<<<<< HEAD
-      <BtnWrapper>
-        <Add onClick={() => dispatch(addItem({ id, name, price }))}>
-          {" "}
-          Add to Cart -{price}{" "}
-        </Add>
-      </BtnWrapper>
-=======
       {numInStock === 0 ? (
         <>
           <p>Out of stock</p>
@@ -58,7 +50,6 @@ const StoreItem = ({ item, company }) => {
           </btnWrapper>
         </>
       )}
->>>>>>> eca1a900727c53a57147eb90e62feeddca8893ed
     </Wrapper>
   );
 };
