@@ -32,7 +32,7 @@ const StoreItem = ({ item, company }) => {
           <btnWrapper>
             <Add
               disabled
-              onClick={() => dispatch(addItem({ id, name, price }))}
+              onClick={() => dispatch(addItem({ id, name, price, image }))}
             >
               {" "}
               Add to Cart -{price}{" "}
@@ -43,7 +43,7 @@ const StoreItem = ({ item, company }) => {
         <>
           <p>{numInStock} left in stock</p>
           <btnWrapper>
-            <Add onClick={() => dispatch(addItem({ id, name, price }))}>
+            <Add onClick={() => dispatch(addItem({ id, name, price, image }))}>
               {" "}
               Add to Cart -{price}{" "}
             </Add>
