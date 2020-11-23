@@ -44,9 +44,7 @@ express()
   .get("/allitems", handleAllItems)
   .get("/item/:id", handleItemById)
   .get("/companies", handleCompanies)
-
   .post("/cart/item/:id", CartaddItem)
-  .put("/cart/item/:id")
   .delete("/cart/item/:id", CartDeleteItem)
 
   .get("*", (req, res) => {
