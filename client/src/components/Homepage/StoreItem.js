@@ -29,25 +29,29 @@ const StoreItem = ({ item, company }) => {
       {numInStock === 0 ? (
         <>
           <p>Out of stock</p>
-          <btnWrapper>
+          <BtnWrapper>
             <Add
               disabled
               onClick={() => dispatch(addItem({ id, name, price, image }))}
             >
               {" "}
-              Add to Cart -{price}{" "}
+              Out of Stock{" "}
             </Add>
-          </btnWrapper>
+          </BtnWrapper>
         </>
       ) : (
         <>
           <p>{numInStock} left in stock</p>
-          <btnWrapper>
-            <Add onClick={() => dispatch(addItem({ id, name, price, image, numInStock }))}>
+          <BtnWrapper>
+            <Add
+              onClick={() =>
+                dispatch(addItem({ id, name, price, image, numInStock }))
+              }
+            >
               {" "}
-              Add to Cart -{price}{" "}
+              Add to Cart {price}{" "}
             </Add>
-          </btnWrapper>
+          </BtnWrapper>
         </>
       )}
     </Wrapper>

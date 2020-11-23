@@ -6,7 +6,6 @@ import { FaAngleDoubleLeft } from "react-icons/fa";
 import { FaAngleDoubleRight } from "react-icons/fa";
 import { FaAngleLeft } from "react-icons/fa";
 import { FaAngleRight } from "react-icons/fa";
-
 import Pagination from "react-js-pagination";
 
 import { useDispatch } from "react-redux";
