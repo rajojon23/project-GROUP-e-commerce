@@ -86,11 +86,15 @@ const Title = styled.h2`
   margin-top: 8px;
   font-size: 14px;
   font-weight: 600;
+  color: black;
 `;
 
 const BtnWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
+  :hover {
+    color: red;
+  }
 `;
 
 const Add = styled.button`
@@ -98,7 +102,7 @@ const Add = styled.button`
   display: block;
   width: 100%;
   border-radius: 12px;
-  background: #ebc9a2;
+  background: black;
   color: white;
   border: none;
   padding: 8px;

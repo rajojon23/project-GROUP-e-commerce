@@ -4,7 +4,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    background: #ebc9a2;
+    background: black;
   }
 
   *,
@@ -14,6 +14,7 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
+    color:white;
   }
 `;
 
