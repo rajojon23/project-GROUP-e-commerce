@@ -74,6 +74,9 @@ const Title = styled.h2`
 const btnWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
+  :hover {
+    color: red;
+  }
 `;
 
 const Add = styled.button`

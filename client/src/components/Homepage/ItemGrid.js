@@ -82,7 +82,7 @@ const Wrapper = styled.div`
     "main main main main main"
     "main main main main main"
     "main main main main main"
-    "   .footer . . .  ";
+    " . footer . . . ";
 `;
 
 const PaginationContainer = styled.footer`
@@ -112,7 +112,7 @@ const PaginationContainer = styled.footer`
   }
 
   .pagination a.undefined {
-    color: black;
+    color: red;
   }
 
   .pagination li.active {

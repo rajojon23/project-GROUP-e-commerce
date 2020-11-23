@@ -10,27 +10,27 @@ const Footer = () => {
   return (
     <Wrapper>
       <div>
-        <InfoContainer>
-          <BigTitle>Gucci Mane</BigTitle>
+        <CompanyInfoContainer>
+          <CompanyTitle>Gucci Mane</CompanyTitle>
           <li>support@guccimane.com</li>
           <li>Call us on</li>
           <li>+1 844 420 6969</li>
           <li>7AM - 4PM, CET Mon - Fri</li>
           <Icons>
-            <li style={{ color: "#0f0f0a" }}>
+            <li>
               <Icon size={20} icon={facebook} />
             </li>
-            <li style={{ color: "#0f0f0a" }}>
+            <li>
               <Icon size={20} icon={instagram} />
             </li>
-            <li style={{ color: "#0f0f0a" }}>
+            <li>
               <Icon size={20} icon={twitter} />
             </li>
-            <li style={{ color: "#0f0f0a" }}>
+            <li>
               <Icon size={20} icon={youtubePlay} />
             </li>
           </Icons>
-        </InfoContainer>
+        </CompanyInfoContainer>
       </div>
       <div>
         <InfoContainer>
@@ -60,6 +60,16 @@ const Wrapper = styled.div`
   justify-content: space-around;
 `;
 
+const CompanyInfoContainer = styled.div`
+  list-style: none;
+  li {
+    padding: 7px;
+  }
+  li:hover {
+    cursor: default;
+  }
+`;
+
 const InfoContainer = styled.div`
   list-style: none;
   li {
@@ -71,12 +81,15 @@ const InfoContainer = styled.div`
   }
 `;
 
-const BigTitle = styled.div`
+const CompanyTitle = styled.div`
   list-style: none;
   padding: 10px;
   font-size: 40px;
   font-weight: 700;
   color: red;
+  :hover {
+    cursor: default;
+  }
 `;
 
 const Title = styled.div`
@@ -85,6 +98,9 @@ const Title = styled.div`
   font-size: 20px;
   font-weight: 700;
   color: red;
+  :hover {
+    cursor: default;
+  }
 `;
 
 const Icons = styled.div`
@@ -92,7 +108,7 @@ const Icons = styled.div`
   justify-content: space-between;
   margin-top: 8px;
   width: 200px;
-  li:hover {
+  li :hover {
     cursor: pointer;
     color: red;
   }
