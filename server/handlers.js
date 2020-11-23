@@ -1,5 +1,5 @@
 const { updatedItemArr, updatedArr } = require("./dataTest");
-//const { updatedItemArr, updatedArr } = require("./data");
+
 // returns all the items
 const handleAllItems = (req, res) => {
   if (updatedItemArr.length === 0) {
@@ -65,15 +65,6 @@ const CartDeleteItem = (req, res) => {
   }
 };
 
-// const updateCart = (req, res) => {
-//   const { id } = req.params;
-//   const updateCartItem;
-//   res.status(200).json({
-//     status: 200,
-//     data: updatedArr,
-//   });
-// };
-
 // returns the sellers
 const handleCompanies = (req, res) => {
   res.status(200).json({
@@ -88,7 +79,4 @@ module.exports = {
   handleCompanies,
   CartaddItem,
   CartDeleteItem,
-  // updateCart,
 };
-// fs.writeFileSync("server/data/companies.json", JSON.stringify(updatedArr));
-// fs.writeFileSync("server/data/items.json", JSON.stringify(updatedItemArr));

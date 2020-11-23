@@ -25,14 +25,12 @@ const StoreItem = ({ item, company }) => {
         <Image alt="item" src={image} />
       </ImageWrapper>
       <Title>{name}</Title>
-
       <p>{companyName}</p>
       <btnWrapper>
         <Add onClick={() =>
           dispatch(addItem({ id, name, price }))
         } > Add to Cart -{price} </Add>
       </btnWrapper>
-
     </Wrapper>
   );
 };
