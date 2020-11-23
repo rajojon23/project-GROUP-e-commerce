@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import StoreItem from "./StoreItem";
 
+import Pagination from "react-js-pagination";
+
 const ItemGrid = () => {
   const [items, setItems] = useState([]);
   const [sellers, setSellers] = useState([]);
+  const [activePage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     fetch("/allitems")
@@ -16,16 +19,29 @@ const ItemGrid = () => {
       .then((res) => res.json())
       .then((data) => {
         setSellers([...data.data]);
-        console.log(data.data);
+        // console.log(data.data);
       })
       .catch((err) => console.log(err));
   }, []);
+
+  const todosPerPage = 15;
+
+  const indexOfLastTodo = activePage * todosPerPage;
+  const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
+  const currentTodos = items.slice(indexOfFirstTodo, indexOfLastTodo);
+
+  // console.log(currentTodos);
+
+  const handlePageChange = (pageNumber) => {
+    console.log(`active page is ${pageNumber}`);
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <Wrapper>
       {items &&
         sellers &&
-        items.map((item) => {
+        currentTodos.map((item) => {
           const company = sellers.find(
             (seller) => seller._id === item.companyId
           );
@@ -33,6 +49,17 @@ const ItemGrid = () => {
             <StoreItem key={item.id} item={{ ...item }} company={company} />
           );
         })}
+      <div>
+        <div className="pagination">
+          <Pagination
+            activePage={activePage}
+            itemsCountPerPage={3}
+            totalItemsCount={items.length}
+            pageRangeDisplayed={3}
+            onChange={handlePageChange}
+          />
+        </div>
+      </div>
     </Wrapper>
   );
 };

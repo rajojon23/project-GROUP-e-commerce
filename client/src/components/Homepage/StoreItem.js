@@ -18,12 +18,10 @@ const StoreItem = ({ item, company }) => {
   return (
     <Wrapper>
       <ImageWrapper>
-
         <Image alt="item" src={image} />
       </ImageWrapper>
       <Title>{name}</Title>
       {price} {companyName}
-
     </Wrapper>
   );
 };
