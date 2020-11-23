@@ -25,6 +25,7 @@ const StoreItem = ({ item, company }) => {
         <Image alt="item" src={image} />
       </ImageWrapper>
       <Title>{name}</Title>
+<<<<<<< HEAD
       <p>{companyName}</p>
       <btnWrapper>
         <Add onClick={() => dispatch(addItem({ id, name, price }))}>
@@ -32,6 +33,16 @@ const StoreItem = ({ item, company }) => {
           Add to Cart -{price}{" "}
         </Add>
       </btnWrapper>
+=======
+
+      <p>{companyName}</p>
+      <btnWrapper>
+        <Add onClick={() =>
+          dispatch(addItem({ id, name, price }))
+        } > Add to Cart -{price} </Add>
+      </btnWrapper>
+
+>>>>>>> a6e142fbd10b6994c833d84a6deb956e7ed00977
     </Wrapper>
   );
 };
