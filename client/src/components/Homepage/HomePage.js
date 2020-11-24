@@ -7,31 +7,40 @@ import Footer from "./Footer";
 // This is the structure that could work for the homepage
 
 const HomePage = () => {
-  const [filter, setFilter] = useState([
+  const defaultFilterState = [
     "Entertainment",
     "Fitness",
     "Medical",
     "Lifestyle",
-  ]);
-  const [entCheched, setEntChecked] = useState(true);
-  const [fitCheched, setFitChecked] = useState(true);
-  const [medCheched, setMedChecked] = useState(true);
-  const [lifeCheched, setLifeChecked] = useState(true);
+  ];
+  const [filter, setFilter] = useState([...defaultFilterState]);
+  const [entCheched, setEntChecked] = useState(false);
+  const [fitCheched, setFitChecked] = useState(false);
+  const [medCheched, setMedChecked] = useState(false);
+  const [lifeCheched, setLifeChecked] = useState(false);
+  const [filter2, setFilter2] = useState([]);
+
+  React.useEffect(() => {
+    const checkedArray = [entCheched, fitCheched, lifeCheched, medCheched];
+
+    checkedArray.every((box) => box === false)
+      ? setFilter([...defaultFilterState])
+      : setFilter([...filter2]);
+  }, [entCheched, fitCheched, medCheched, lifeCheched]);
 
   const handleFilter = (e, catTarget, setCatTarget) => {
     const cat = e.target.value;
-
-    if (catTarget === false) {
-      if (!filter.includes(cat)) {
-        setFilter([...filter, cat]);
-      } else if (filter.includes(cat)) {
-        setFilter([...filter]);
-      }
-    } else if (catTarget === true) {
-      const newF = filter.filter((i) => i !== cat);
-      setFilter([...newF]);
-    }
     setCatTarget(!catTarget);
+    if (catTarget === false) {
+      if (!filter2.includes(cat)) {
+        setFilter2([...filter2, cat]);
+      } else {
+        setFilter2([...filter]);
+      }
+    } else {
+      const newF = filter2.filter((i) => i !== cat);
+      setFilter2([...newF]);
+    }
   };
   return (
     <Wrapper>

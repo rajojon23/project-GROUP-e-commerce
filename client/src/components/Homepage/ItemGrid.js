@@ -73,7 +73,7 @@ const ItemGrid = ({ filter }) => {
           className="pagination"
           activePage={activePage}
           itemsCountPerPage={15}
-          totalItemsCount={items.length}
+          totalItemsCount={filteredList.length}
           pageRangeDisplayed={5}
           onChange={handlePageChange}
           prevPageText={<FaAngleLeft />}
