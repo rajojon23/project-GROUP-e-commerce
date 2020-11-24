@@ -1,6 +1,10 @@
 import React from "react";
 
-const initialState = {};
+const initialState = {
+  // items : [],
+  // total : 0,
+  // price: 0,
+};
 
 export default function cartReducer(state = initialState, action) {
   switch (action.type) {
@@ -21,7 +25,26 @@ export default function cartReducer(state = initialState, action) {
         ...stateCopy,
       };
     }
-
+    case "CHANGE_QUANTITY": {
+      return {
+        ...state,
+        [action.item.id]: {
+          ...action.item,
+          quantity: action.quantity,
+          totalPrice:
+            Number(action.quantity) * Number(action.item.price.split("$")[1]),
+        },
+      };
+    }
+    case "CHANGE_ITEM_PRICE_TOTAL": {
+      return {
+        ...state,
+        [action.item.id]: {
+          ...action.item,
+          totalPrice: action.item.totalPrice,
+        },
+      };
+    }
     default:
       return state;
   }

@@ -4,19 +4,28 @@ import bannerImg from "../../assets/banner-watch.jpg";
 import { Icon } from "react-icons-kit";
 import { ic_shopping_cart } from "react-icons-kit/md/ic_shopping_cart";
 import { NavLink } from "react-router-dom";
+import { ic_attach_money } from "react-icons-kit/md/ic_attach_money";
 // This will be the header. We could have the title and a picture as a banner
 
 const Header = () => {
   return (
-
-      <Wrapper>
-        <Top>
-          <Title>STORE NAME</Title>
-          <NavLink to="/cart"><Icon icon={ic_shopping_cart} size={32} className="icon" /></NavLink>
-        </Top>
-        <Banner alt="store-banner" src={bannerImg} />
-      </Wrapper>
-
+    <Wrapper>
+      <Top>
+        <Title>
+          <div style={{ color: "red" }}>
+            <Icon icon={ic_attach_money} size={40} />
+          </div>
+          Gucci Mane
+          <div>
+            <Icon icon={ic_attach_money} size={40} />
+          </div>
+        </Title>
+        <NavLink to="/cart">
+          <Icon icon={ic_shopping_cart} size={40} className="icon" />
+        </NavLink>
+      </Top>
+      <Banner alt="store-banner" src={bannerImg} />
+    </Wrapper>
   );
 };
 
@@ -44,11 +53,13 @@ const Top = styled.div`
 
 const Banner = styled.img`
   width: 100vw;
-  height: 300px;
+  height: 400px;
 `;
 
 const Title = styled.h1`
   font-family: "Roboto", sans-serif;
+  display: flex;
+  color: red;
 `;
 
 export default Header;

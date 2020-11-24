@@ -1,28 +1,32 @@
-import React from 'react';
+import React , {useState } from 'react';
 import styled from 'styled-components';
 import { NavLink } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import { getStoreItemArray } from "../../reducers";
-
-
-// import CartItem from './CartItem';
-// import { getStoreItemArray } from "../../reducers";
-
+import { useDispatch } from "react-redux";
+import { removeItem, changeCartQuantityItem } from "../../actions";
 
 
 const Cart = () => {
 
     const storeItems  = useSelector(getStoreItemArray);
-    // const storeItems  = useSelector(getStoreItemArray);
+
+    let [grandTotal, setgrandTotal]  = useState(0);
+
     
 
-    // let total = 0;
+    React.useEffect(() => {
+        
+        let grandTotal = 0;
+        storeItems.forEach((item) =>{ 
+            grandTotal+=Number(item.totalPrice);
+            
+        });
+        
 
-    // storeItems.forEach((item) =>{ 
-    //     total+=item.price;
-    // });
-
-    // total = (total/100).toFixed(2);
+        setgrandTotal(grandTotal.toFixed(2));
+        
+    }, [storeItems]);
 
   return (
     <Wrapper>
@@ -54,47 +58,13 @@ const Cart = () => {
                         </div>
                         <button className="buttonPrice" style={{visibility: 'hidden'}}>X</button>   
                 </div>
-                {/* divideer */}
+                {/* divider */}
 
 
                     {
                         
                         storeItems.map((item) => (
-                            <div className="itemRow" >
-                                    <div>
-                                        <div className="itemHead itemAdded" style={{paddingLeft: 40}}>Product</div>
-                                        <div className="itemContainer">
-                                            <img className="itemImg" src={item.image} />
-                                            <div className="itemDetails">
-                                                <span>{item.name}</span>
-                                                <span>For: wrist</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className="itemHead itemAdded">Price</div>
-                                        <div className="itemPrice">
-                                        <span>{item.price}</span>
-                                        </div>
-                                    </div>
-                                    <div>
-                                    <div className="itemHead itemAdded">Quantity</div>
-                                        <select>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                        </select>  
-                                    </div>
-                                    <div>
-                                        <div className="itemHead itemAdded">Total Item Price</div>
-                                        <div className="totalItemPrice">
-                                        $<span>100.00</span>
-                                        </div>    
-                                        
-                                    </div>
-                                    <button className="buttonPrice">X</button>   
-                            </div>
+                            <CartItem item={item} />
                         ))
 
 
@@ -106,18 +76,67 @@ const Cart = () => {
         
 
         <div className="totalPurchase">
-            <div className="total">Total: <span>$99</span></div>               
-            <button>Purchase</button> 
+            <div className="total">Total: <span>${grandTotal}</span></div>               
+            <NavLink to="/thankyou"><button>Purchase</button></NavLink> 
         </div>    
         
     </Wrapper>
   );
 };
 
-const CartItem = () => {
+const CartItem = ({item}) => {
+    const dispatch = useDispatch();
 
-   
 
+    if(!item.totalPrice){
+
+        item.totalPrice = item.price.split("$")[1];
+    }
+
+
+
+    return (
+        <div className="itemRow" >
+            <div>
+                <div className="itemHead itemAdded" style={{paddingLeft: 40}}>Product</div>
+                <div className="itemContainer">
+                    <img className="itemImg" src={item.image} />
+                    <div className="itemDetails">
+                        <span>{item.name}</span>
+                    </div>
+
+                </div>
+            </div>
+            <div>
+                <div className="itemHead itemAdded">Price</div>
+                <div className="itemPrice">
+                <span>{item.price}</span>
+                </div>
+            </div>
+            <div>
+            <div className="itemHead itemAdded">Quantity</div>
+
+                <input onChange = {
+                    (e) =>{
+                        console.log(e.target.value);
+                        dispatch(changeCartQuantityItem(item, e.target.value));
+                        
+                    }
+                } value={item.quantity} className="inputQuantity"/>
+            </div>
+            <div>
+                <div className="itemHead itemAdded">Total Item Price</div>
+                <div className="totalItemPrice">
+                $<span>{Number(item.totalPrice).toFixed(2)}</span>
+                </div>    
+                
+            </div>
+            <button className="buttonPrice" 
+            onClick={() => dispatch(removeItem(item))}
+            >X</button>   
+    </div>
+        
+    );
 
 };
 
@@ -194,6 +213,15 @@ const Wrapper = styled.div`
 
     .itemAdded{
         visibility: hidden;
+
+
+    }
+
+    .inputQuantity{
+        width: 27px;
+        padding: 5px 0 5px 5px;
+        margin-left: 30px;
+        color: #000;
     }
     .itemDetails{
         display: flex;
@@ -236,8 +264,9 @@ const Wrapper = styled.div`
         }
         button{
             border: none;
-            color: #fff;
-            background-color: #000;
+            color: #000 ;
+            background-color:#fff ;
+
             border: 1px solid #000;
             padding: 15px;
             font-size: 15px;
@@ -246,9 +275,9 @@ const Wrapper = styled.div`
         }
 
         button:hover {
-            color: #000 ;
-            background-color:#fff ;
-            border: 1px solid #000;
+            color: #fff;
+            background-color: #000;
+            border: 1px solid #fff;
         }
 
     }

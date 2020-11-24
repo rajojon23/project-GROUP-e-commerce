@@ -24,3 +24,15 @@ export const filterByBrand = (payload) => ({
   type: "FILTER_BY_BRAND",
   payload,
 });
+
+export const changeCartQuantityItem = (item, quantity) => ({
+  type: "CHANGE_QUANTITY",
+  item,
+  quantity,
+});
+
+export const changeCartItemTotalPrice = (item, totalPrice) => ({
+  type: "CHANGE_ITEM_PRICE_TOTAL",
+  item,
+  totalPrice,
+});
