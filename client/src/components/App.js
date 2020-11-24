@@ -1,4 +1,5 @@
 import Cart from "./Cart/Cart";
+import ThankYou from "./Cart/ThankYou";
 
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -11,12 +12,15 @@ function App() {
     <BrowserRouter>
       <GlobalStyles />
       <Switch>
-        <Route exact path="/">
-          <HomePage />
-        </Route>
-        <Route exact path="/cart">
-          <Cart />
-        </Route>
+          <Route exact path="/">
+            <HomePage />
+          </Route>
+          <Route exact path="/cart">
+            <Cart/>
+          </Route>
+          <Route exact path="/thankyou">
+            <ThankYou/>
+          </Route>
       </Switch>
     </BrowserRouter>
   );
