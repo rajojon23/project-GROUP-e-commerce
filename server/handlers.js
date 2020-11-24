@@ -65,6 +65,38 @@ const CartDeleteItem = (req, res) => {
   }
 };
 
+const handleInventory = (req, res) => {
+  // console.log(req.body);
+  const storeItems = req.body;
+  const storeItemsIds = [];
+
+  storeItems.forEach((item) => {
+    storeItemsIds.push(item.id);
+  });
+
+  let foundItem = updatedItemArr.filter((item) => {
+    return storeItemsIds.includes(item.id);
+  });
+
+  foundItem.forEach((dbitem) => {
+    const purchasedItem = storeItems.find((purchasedItem) => {
+      return dbitem.id === purchasedItem.id;
+    });
+    if (purchasedItem.quantity <= dbitem.numInStock) {
+      dbitem.numInStock = dbitem.numInStock - purchasedItem.quantity;
+      res.status(200).json({
+        status: 200,
+        message: "Succesfully updated inventory",
+      });
+    } else {
+      res.status(404).json({
+        status: 404,
+        message: "Not enough items in stock",
+      });
+    }
+  });
+};
+
 // returns the sellers
 const handleCompanies = (req, res) => {
   res.status(200).json({
@@ -79,4 +111,5 @@ module.exports = {
   handleCompanies,
   CartaddItem,
   CartDeleteItem,
+  handleInventory,
 };

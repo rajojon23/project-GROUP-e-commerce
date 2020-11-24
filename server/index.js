@@ -11,7 +11,7 @@ const {
   handleCompanies,
   CartaddItem,
   CartDeleteItem,
-  updateCart,
+  handleInventory,
 } = require("./handlers");
 
 //const { updateCart } = require("./handlers");
@@ -44,6 +44,7 @@ express()
   .get("/allitems", handleAllItems)
   .get("/item/:id", handleItemById)
   .get("/companies", handleCompanies)
+  .put("/inventory/update", handleInventory)
   .post("/cart/item/:id", CartaddItem)
   .delete("/cart/item/:id", CartDeleteItem)
 

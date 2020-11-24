@@ -4,8 +4,6 @@ import { addItem } from "../../actions";
 import { useDispatch } from "react-redux";
 
 const StoreItem = ({ item, company }) => {
-  const [numInCart, setNumInCart] = useState(0);
-
   const {
     id,
     name,
