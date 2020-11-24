@@ -10,7 +10,7 @@ import GlobalStyles from "./Globalstyles";
 function App() {
   return (
     <BrowserRouter>
-        <GlobalStyles />
+      <GlobalStyles />
       <Switch>
           <Route exact path="/">
             <HomePage />

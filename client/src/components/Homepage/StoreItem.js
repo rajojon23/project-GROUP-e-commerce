@@ -31,6 +31,7 @@ const StoreItem = ({ item, company }) => {
       <Title>{name}</Title>
       <Title>{companyName}</Title>
       <Price>{price}</Price>
+      <p style={{ color: "black" }}>Categoy: {category}</p>
       {numInStock === 0 ? (
         <>
           <p>Out of stock</p>
