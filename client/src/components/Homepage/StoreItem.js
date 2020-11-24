@@ -19,8 +19,6 @@ const StoreItem = ({ item, company }) => {
 
   const { _id: companyIdNum, name: companyName, url, country } = company;
 
-  console.log(company);
-
   const dispatch = useDispatch();
 
   return (
