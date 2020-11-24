@@ -15,7 +15,7 @@ const StoreItem = ({ item, company }) => {
     companyId,
   } = item;
 
-  const { id: companyIdNum, name: companyName, url, country } = company;
+  const { _id: companyIdNum, name: companyName, url, country } = company;
 
   const dispatch = useDispatch();
 
