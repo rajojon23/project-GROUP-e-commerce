@@ -35,7 +35,13 @@ const Header = () => {
         </Title>
         <div>
           <NavLink to="/cart">
-            <div>{numInCart}</div>
+            {numInCart ? (
+              <ItemCount>
+                <p>{numInCart}</p>
+              </ItemCount>
+            ) : (
+              <></>
+            )}
             <Icon icon={ic_shopping_cart} size={40} className="icon" />
           </NavLink>
         </div>
@@ -47,6 +53,7 @@ const Header = () => {
 
 const Wrapper = styled.div`
   grid-area: header;
+  width: auto;
   margin: 0;
 
   .icon {
@@ -76,6 +83,26 @@ const Title = styled.h1`
   font-family: "Roboto", sans-serif;
   display: flex;
   color: red;
+`;
+
+const ItemCount = styled.div`
+  border: 2px solid white;
+  padding: 8px;
+  width: 30px;
+  height: 30px;
+  font-size: 12px;
+  border-radius: 50%;
+  text-decoration: none;
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  background-color: black;
+  z-index: 1;
+  margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
 `;
 
 export default Header;

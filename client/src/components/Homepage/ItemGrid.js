@@ -50,7 +50,7 @@ const ItemGrid = ({ filter }) => {
     console.log(`active page is ${pageNumber}`);
     setCurrentPage(pageNumber);
   };
-  console.log({ items });
+  console.log({ sellers });
 
   return (
     <Wrapper>
@@ -73,7 +73,7 @@ const ItemGrid = ({ filter }) => {
           className="pagination"
           activePage={activePage}
           itemsCountPerPage={15}
-          totalItemsCount={items.length}
+          totalItemsCount={filteredList.length}
           pageRangeDisplayed={5}
           onChange={handlePageChange}
           prevPageText={<FaAngleLeft />}
