@@ -77,7 +77,7 @@ const Cart = () => {
 
         <div className="totalPurchase">
             <div className="total">Total: <span>${grandTotal}</span></div>               
-            <button>Purchase</button> 
+            <NavLink to="/thankyou"><button>Purchase</button></NavLink> 
         </div>    
         
     </Wrapper>
@@ -103,7 +103,6 @@ const CartItem = ({item}) => {
                     <img className="itemImg" src={item.image} />
                     <div className="itemDetails">
                         <span>{item.name}</span>
-                        <span>For: wrist</span>
                     </div>
 
                 </div>
@@ -222,6 +221,7 @@ const Wrapper = styled.div`
         width: 27px;
         padding: 5px 0 5px 5px;
         margin-left: 30px;
+        color: #000;
     }
     .itemDetails{
         display: flex;
@@ -264,8 +264,9 @@ const Wrapper = styled.div`
         }
         button{
             border: none;
-            color: #fff;
-            background-color: #000;
+            color: #000 ;
+            background-color:#fff ;
+
             border: 1px solid #000;
             padding: 15px;
             font-size: 15px;
@@ -274,9 +275,9 @@ const Wrapper = styled.div`
         }
 
         button:hover {
-            color: #000 ;
-            background-color:#fff ;
-            border: 1px solid #000;
+            color: #fff;
+            background-color: #000;
+            border: 1px solid #fff;
         }
 
     }
