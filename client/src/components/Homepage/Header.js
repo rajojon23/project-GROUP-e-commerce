@@ -47,6 +47,7 @@ const Header = () => {
 
 const Wrapper = styled.div`
   grid-area: header;
+  width: auto;
   margin: 0;
 
   .icon {
