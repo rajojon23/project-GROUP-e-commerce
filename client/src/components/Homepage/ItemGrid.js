@@ -6,16 +6,16 @@ import { FaAngleDoubleLeft } from "react-icons/fa";
 import { FaAngleDoubleRight } from "react-icons/fa";
 import { FaAngleLeft } from "react-icons/fa";
 import { FaAngleRight } from "react-icons/fa";
-
 import Pagination from "react-js-pagination";
 
 import { useDispatch } from "react-redux";
 import { addItem } from "../../actions";
 
-const ItemGrid = () => {
+const ItemGrid = ({ filter }) => {
   const [items, setItems] = useState([]);
   const [sellers, setSellers] = useState([]);
   const [activePage, setCurrentPage] = useState(1);
+  console.log(`filter: ${filter}`);
 
   useEffect(() => {
     fetch("/allitems")
@@ -35,7 +35,14 @@ const ItemGrid = () => {
   const todosPerPage = 15;
   const indexOfLastTodo = activePage * todosPerPage;
   const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
-  const currentTodos = items.slice(indexOfFirstTodo, indexOfLastTodo);
+  const filteredList = items.filter(
+    (e) =>
+      e.category === filter[0] ||
+      e.category === filter[1] ||
+      e.category === filter[2] ||
+      e.category === filter[3]
+  );
+  const currentTodos = filteredList.slice(indexOfFirstTodo, indexOfLastTodo);
 
   // console.log(currentTodos);
 
@@ -54,7 +61,11 @@ const ItemGrid = () => {
             (seller) => seller._id === item.companyId
           );
           return (
-            <StoreItem key={item.id} item={{ ...item }} company={company} />
+            <StoreItem
+              key={item.id}
+              item={{ ...item }}
+              company={{ ...company }}
+            />
           );
         })}
       <PaginationContainer>

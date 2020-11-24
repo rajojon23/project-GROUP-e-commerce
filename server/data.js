@@ -26,7 +26,7 @@ companies.forEach((item) => {
     name: item.name,
     url: item.url,
     country: item.country,
-    id: item._id,
+    _id: item._id,
   });
 });
 
