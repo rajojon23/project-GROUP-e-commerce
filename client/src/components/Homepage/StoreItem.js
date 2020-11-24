@@ -25,29 +25,31 @@ const StoreItem = ({ item, company }) => {
         <Image alt="item" src={image} />
       </ImageWrapper>
       <Title>{name}</Title>
-      <p>{companyName}</p>
+      <p style={{ color: "black" }}>Categoy: {category}</p>
       {numInStock === 0 ? (
         <>
           <p>Out of stock</p>
-          <btnWrapper>
+          <BtnWrapper>
             <Add
               disabled
               onClick={() => dispatch(addItem({ id, name, price, image }))}
             >
-              {" "}
-              Add to Cart -{price}{" "}
+              Add to Cart -{price}
             </Add>
-          </btnWrapper>
+          </BtnWrapper>
         </>
       ) : (
         <>
           <p>{numInStock} left in stock</p>
-          <btnWrapper>
-            <Add onClick={() => dispatch(addItem({ id, name, price, image, numInStock }))}>
-              {" "}
-              Add to Cart -{price}{" "}
+          <BtnWrapper>
+            <Add
+              onClick={() =>
+                dispatch(addItem({ id, name, price, image, numInStock }))
+              }
+            >
+              Add to Cart -{price}
             </Add>
-          </btnWrapper>
+          </BtnWrapper>
         </>
       )}
     </Wrapper>

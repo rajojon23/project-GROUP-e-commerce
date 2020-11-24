@@ -9,14 +9,14 @@ import GlobalStyles from "./Globalstyles";
 function App() {
   return (
     <BrowserRouter>
-        <GlobalStyles />
+      <GlobalStyles />
       <Switch>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
-          <Route exact path="/cart">
-            <Cart/>
-          </Route>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+        <Route exact path="/cart">
+          <Cart />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
