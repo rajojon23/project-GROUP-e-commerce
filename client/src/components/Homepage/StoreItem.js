@@ -35,7 +35,7 @@ const StoreItem = ({ item, company }) => {
               onClick={() => dispatch(addItem({ id, name, price, image }))}
             >
               {" "}
-              Out of Stock{" "}
+              Add to Cart -{price}{" "}
             </Add>
           </BtnWrapper>
         </>
@@ -49,7 +49,7 @@ const StoreItem = ({ item, company }) => {
               }
             >
               {" "}
-              Add to Cart {price}{" "}
+              Add to Cart -{price}{" "}
             </Add>
           </BtnWrapper>
         </>
