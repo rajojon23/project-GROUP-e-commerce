@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { addItem } from "../../actions";
 import { useDispatch } from "react-redux";
 
 const StoreItem = ({ item, company }) => {
+  const [numInCart, setNumInCart] = useState(0);
+
   const {
     id,
     name,
@@ -15,7 +17,9 @@ const StoreItem = ({ item, company }) => {
     companyId,
   } = item;
 
-  const { id: companyIdNum, name: companyName, url, country } = company;
+  const { _id: companyIdNum, name: companyName, url, country } = company;
+
+  console.log(company);
 
   const dispatch = useDispatch();
 
@@ -25,7 +29,8 @@ const StoreItem = ({ item, company }) => {
         <Image alt="item" src={image} />
       </ImageWrapper>
       <Title>{name}</Title>
-      <p>{companyName}</p>
+      <Title>{companyName}</Title>
+      <Price>{price}</Price>
       {numInStock === 0 ? (
         <>
           <p>Out of stock</p>
@@ -34,8 +39,7 @@ const StoreItem = ({ item, company }) => {
               disabled
               onClick={() => dispatch(addItem({ id, name, price, image }))}
             >
-              {" "}
-              Add to Cart -{price}{" "}
+              Out of stock
             </Add>
           </BtnWrapper>
         </>
@@ -48,8 +52,7 @@ const StoreItem = ({ item, company }) => {
                 dispatch(addItem({ id, name, price, image, numInStock }))
               }
             >
-              {" "}
-              Add to Cart -{price}{" "}
+              Buy Now !
             </Add>
           </BtnWrapper>
         </>
@@ -93,12 +96,18 @@ const Title = styled.h2`
   color: black;
 `;
 
+const Price = styled.h2`
+  margin: 0;
+  margin-bottom: 16px;
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: black;
+`;
+
 const BtnWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
-  :hover {
-    color: red;
-  }
 `;
 
 const Add = styled.button`
@@ -116,6 +125,9 @@ const Add = styled.button`
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
+  }
+  :hover {
+    color: red;
   }
 `;
 

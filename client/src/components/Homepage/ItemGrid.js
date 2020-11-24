@@ -53,7 +53,11 @@ const ItemGrid = () => {
             (seller) => seller._id === item.companyId
           );
           return (
-            <StoreItem key={item.id} item={{ ...item }} company={company} />
+            <StoreItem
+              key={item.id}
+              item={{ ...item }}
+              company={{ ...company }}
+            />
           );
         })}
       <PaginationContainer>

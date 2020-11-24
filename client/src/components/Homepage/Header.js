@@ -20,9 +20,11 @@ const Header = () => {
             <Icon icon={ic_attach_money} size={40} />
           </div>
         </Title>
-        <NavLink to="/cart">
-          <Icon icon={ic_shopping_cart} size={40} className="icon" />
-        </NavLink>
+        <div>
+          <NavLink to="/cart">
+            <Icon icon={ic_shopping_cart} size={40} className="icon" />
+          </NavLink>
+        </div>
       </Top>
       <Banner alt="store-banner" src={bannerImg} />
     </Wrapper>
