@@ -4,7 +4,7 @@ const Sidebar = () => {
   return (
     <Wrapper>
       <Category>
-        Category:
+        <h4>Category</h4>
         <label>
           <input type="checkbox" />
           Entertainment
@@ -22,6 +22,24 @@ const Sidebar = () => {
           Medical
         </label>
       </Category>
+      <PriceCat>
+        <h4>Price</h4>
+        <label>
+          <input type="checkbox" />
+          Under 50 $
+        </label>
+        <label>
+          <input type="checkbox" />
+          100 $ - 200$
+        </label>
+        <label>
+          <input type="checkbox" />
+          200 $ - 300$
+        </label>
+      </PriceCat>
+      <div>
+        <h4>Brand</h4>
+      </div>
     </Wrapper>
   );
 };
@@ -33,6 +51,11 @@ const Wrapper = styled.div`
 `;
 
 const Category = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const PriceCat = styled.div`
   display: flex;
   flex-direction: column;
 `;

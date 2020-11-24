@@ -109,6 +109,7 @@ const FooterWrapper = styled.footer`
   padding: 16px 20px;
 `;
 const Category = styled.div`
+  grid-area: sidebar;
   display: flex;
   flex-direction: column;
 `;

@@ -50,7 +50,7 @@ const ItemGrid = ({ filter }) => {
     console.log(`active page is ${pageNumber}`);
     setCurrentPage(pageNumber);
   };
-  console.log({ items });
+  console.log({ sellers });
 
   return (
     <Wrapper>
