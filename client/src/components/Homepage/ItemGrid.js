@@ -15,7 +15,6 @@ const ItemGrid = ({ filter }) => {
   const [items, setItems] = useState([]);
   const [sellers, setSellers] = useState([]);
   const [activePage, setCurrentPage] = useState(1);
-  console.log(`filter: ${filter}`);
 
   useEffect(() => {
     fetch("/allitems")
@@ -50,7 +49,6 @@ const ItemGrid = ({ filter }) => {
     console.log(`active page is ${pageNumber}`);
     setCurrentPage(pageNumber);
   };
-  console.log({ sellers });
 
   return (
     <Wrapper>

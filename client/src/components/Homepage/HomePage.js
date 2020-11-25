@@ -46,7 +46,7 @@ const HomePage = () => {
     <Wrapper>
       <Header />
       <Category>
-        Category:
+        <h2>Category:</h2>
         <label>
           <input
             type="checkbox"
@@ -121,5 +121,12 @@ const Category = styled.div`
   grid-area: sidebar;
   display: flex;
   flex-direction: column;
+  label {
+    font-size: 18px;
+    padding: 5px;
+  }
+  h2 {
+    color: red;
+  }
 `;
 export default HomePage;

@@ -67,19 +67,16 @@ const Cart = () => {
               X
             </button>
           </div>
-          {/* divider */}
-
           {storeItems.map((item) => (
             <CartItem item={item} />
           ))}
         </div>
       </div>
-
       <div className="totalPurchase">
         <div className="total">
           Total: <span>${grandTotal}</span>
         </div>
-        {/* <NavLink to="/thankyou"> */}
+
         <button
           onClick={(e) => {
             updateInventory();
@@ -87,7 +84,6 @@ const Cart = () => {
         >
           Purchase
         </button>
-        {/* </NavLink> */}
       </div>
     </Wrapper>
   );
@@ -172,7 +168,7 @@ const Wrapper = styled.div`
     flex-direction: row;
     justify-content: space-around;
     color: gray;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid red;
     margin: 0 55px 0 55px;
     margin-bottom: -23px;
   }
@@ -205,6 +201,7 @@ const Wrapper = styled.div`
 
     img {
       width: 90px;
+      border-radius: 5px;
     }
   }
 
@@ -262,6 +259,7 @@ const Wrapper = styled.div`
     .total {
       margin-right: 20px;
       font-weight: bold;
+      color: red;
     }
     button {
       border: none;
@@ -276,7 +274,7 @@ const Wrapper = styled.div`
     }
 
     button:hover {
-      color: #fff;
+      color: red;
       background-color: #000;
       border: 1px solid #fff;
     }
